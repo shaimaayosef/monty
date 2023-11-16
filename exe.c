@@ -17,6 +17,8 @@ int exe(char *content, stack_t **stack, unsigned int line_num, FILE *file)
 				{"swap", swap},
 				{"add", add},
 				{"nop", nop},
+				{"sub", sub},
+				{"divetion", divetion},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
