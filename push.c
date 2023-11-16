@@ -1,16 +1,13 @@
 #include "monty.h"
-
 /**
- * push - Pushes an element onto the stack.
- * @stack: A double pointer to the top of the stack
- * @line_number: The current line number in the bytecode file
- * Description: The opcode push pushes an element to the stack.
- * Where <line_number> is the line number in the file.
- * Line numbers always start at 1.
- */
-void push(stack_t **stack, unsigned int line_number)
+ * f_push - add node to the stack
+ * @h_stack: stack head
+ * @line_num: number of line
+ * Return: no return
+*/
+void push(stack_t **h_stack, unsigned int line_num)
 {
-int n, j = 0, flag = 0;
+	int n, j = 0, flag = 0;
 
 	if (bus.arg)
 	{
@@ -21,20 +18,20 @@ int n, j = 0, flag = 0;
 			if (bus.arg[j] > 57 || bus.arg[j] < 48)
 				flag = 1; }
 		if (flag == 1)
-		{ fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		{ fprintf(stderr, "L%d: usage: push integer\n", line_num);
 			fclose(bus.file);
-			free(bus.line);
-			free_stack(*stack);
+			free(bus.content);
+			free_stack(*h_stack);
 			exit(EXIT_FAILURE); }}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n", line_number);
+	{ fprintf(stderr, "L%d: usage: push integer\n", line_num);
 		fclose(bus.file);
-		free(bus.line);
-		free_stack(*stack);
+		free(bus.content);
+		free_stack(*h_stack);
 		exit(EXIT_FAILURE); }
 	n = atoi(bus.arg);
 	if (bus.lifi == 0)
-		addnode(stack, n);
+		addnode(h_stack, n);
 	else
-		addqueue(stack, n);
+		addqueue(h_stack, n);
 }

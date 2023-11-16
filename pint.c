@@ -1,22 +1,19 @@
 #include "monty.h"
-
 /**
- * pint - Prints the value at the top of the stack.
- * @stack: Double pointer to the top of the stack
- * @line_num: Current line number in the bytecode file
- *
- * Description: Opcode pint prints the top stack value.
- * If the stack is empty, an error message is printed, and the program exits.
- */
-void pint(stack_t **stack, unsigned int line_num)
+ * f_pint - prints the top
+ * @h_stack: stack head
+ * @line_num: number of line
+ * Return: no return
+*/
+void pint(stack_t **h_stack, unsigned int line_num)
 {
-	if (*stack == NULL)
+	if (*h_stack == NULL)
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_num);
 		fclose(bus.file);
-		free(bus.line);
-		free_stack(*stack);
+		free(bus.content);
+		free_stack(*h_stack);
 		exit(EXIT_FAILURE);
-	};
-	printf("%d\n", (*stack)->n);
+	}
+	printf("%d\n", (*h_stack)->n);
 }

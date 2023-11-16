@@ -1,19 +1,16 @@
 #include "monty.h"
-
 /**
- * pall - Prints all values on the stack.
- * @stack: Double pointer to the top of the stack
- * @line_number: Current line number in the bytecode file
- * Description: Opcode pall prints all stack values from top to bottom.
- * If the stack is empty, no output is generated.
- */
-
-void pall(stack_t **stack, unsigned int line_number)
+ * f_pall - prints the stack
+ * @h_stack: stack head
+ * @line_num: no used
+ * Return: no return
+*/
+void pall(stack_t **h_stack, unsigned int line_num)
 {
-stack_t *h;
-	(void)line_number;
+	stack_t *h;
+	(void)line_num;
 
-	h = *stack;
+	h = *h_stack;
 	if (h == NULL)
 		return;
 	while (h)
@@ -22,4 +19,3 @@ stack_t *h;
 		h = h->next;
 	}
 }
-

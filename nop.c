@@ -1,15 +1,12 @@
 #include "monty.h"
-
 /**
- * nop - No operation; does nothing.
- * @stack: Double pointer to the top of the stack
- * @line_number: Current line number in the bytecode file
- *
- * Description: Opcode nop doesn't perform any operation.
- * It's used as a placeholder or for alignment purposes.
+  *f_nop- nothing
+  *@h_stack: stack head
+  *@line_num:number of line
+  *Return: no return
  */
-void nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **h_stack, unsigned int line_num)
 {
-(void) line_number;
-(void) stack;
+	(void) line_num;
+	(void) h_stack;
 }
